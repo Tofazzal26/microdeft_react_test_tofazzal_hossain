@@ -2,6 +2,7 @@ import { Rajdhani } from "next/font/google";
 import "./globals.css";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const rajdhani = Rajdhani({ subsets: ["latin"], weight: "600" });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
