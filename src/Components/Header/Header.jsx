@@ -37,7 +37,7 @@ const Header = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-vertical px-1">
                   <li>
                     <Link
                       href="/"
@@ -52,33 +52,33 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      href="/api/service"
+                      href="/api/courses"
                       className={
-                        activeNavbar === "/api/service"
+                        activeNavbar === "/api/courses"
                           ? "text-[16px] text-[#e7b97a]"
                           : "text-[16px]"
                       }
                     >
-                      Service
+                      Courses
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/api/fleet"
+                      href="/api/blog"
                       className={
-                        activeNavbar === "/api/fleet"
+                        activeNavbar === "/api/blog"
                           ? "text-[16px] text-[#e7b97a]"
                           : "text-[16px]"
                       }
                     >
-                      Fleet
+                      Blog
                     </Link>
                   </li>
                   <li>
-                    <a className="text-[16px]">About</a>
+                    <a className="text-[16px]">Contact Us</a>
                   </li>
                   <li>
-                    <a className="text-[16px]">Contact</a>
+                    <a className="text-[16px]">English</a>
                   </li>
                 </ul>
               </ul>
