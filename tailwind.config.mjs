@@ -7,11 +7,11 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      boxShadow: {
+        NavShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px",
+        CardShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
