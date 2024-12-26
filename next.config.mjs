@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: { domains: ["react-interview.crd4lc.easypanel.host"] },
+};
 
 export default nextConfig;

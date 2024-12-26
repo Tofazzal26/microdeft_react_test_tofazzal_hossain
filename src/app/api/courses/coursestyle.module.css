@@ -1,5 +1,5 @@
 .CardParent {
-  width: 300px;
+  width: 100%;
   border-radius: 8px;
   border: 2px solid #e5e7eb;
   position: relative;
@@ -41,12 +41,13 @@
 
 .failedBg {
   position: relative;
-  width: 80px;
+  width: 90px;
   height: 55px;
   background-color: white;
 }
 .failedCard {
-  width: 70px;
+  font-size: 18px;
+  width: 80px;
   height: 45px;
   top: 5px;
   bottom: 0px;
@@ -57,9 +58,12 @@
   background-color: #ed1751;
   color: white;
 }
+.failedCard h2 {
+  margin-left: 5px;
+}
 
 .failedContent {
   position: absolute;
   left: -6px;
-  top: 165px;
+  top: 202px;
 }

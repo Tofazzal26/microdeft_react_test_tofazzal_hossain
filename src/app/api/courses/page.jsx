@@ -6,9 +6,11 @@ import { User } from "lucide-react";
 import axios from "axios";
 
 const Courses = () => {
-  const [course, setCourse] = useState();
+  const [course, setCourse] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const token = localStorage.getItem("token");
     const courseAccess = async () => {
       if (token) {
@@ -20,7 +22,10 @@ const Courses = () => {
             },
           }
         );
+        setLoading(false);
         setCourse(resp.data?.data?.data);
+      } else {
+        setLoading(false);
       }
     };
     courseAccess();
@@ -31,35 +36,58 @@ const Courses = () => {
   return (
     <div className="container mx-auto">
       <div className="my-10">
-        <div>
-          <div className={`${CourseStyle.CardParent}`}>
-            <Image src="/images.jpg" alt="courses" width={300} height={300} />
-            <div className={`${CourseStyle.contentParent}`}>
-              <h2 className={`${CourseStyle.author}`}>
-                <User size={18} /> Logan Faerber
-              </h2>
-              <h2 className={`${CourseStyle.courseTitle}`}>
-                Creational Design Patterns in Java/J2EE
-              </h2>
-              <p className={`${CourseStyle.courseParagraph}`}>
-                Lorem Ipsum is simply dummy test of the printing and typesetting
-                industry
-              </p>
-            </div>
-            <div className={`${CourseStyle.buttonParent}`}>
-              <button className={`${CourseStyle.cardButton}`}>
-                VIEW DETAILS
-              </button>
-            </div>
-            <div className={`${CourseStyle.failedContent}`}>
-              <div className={`${CourseStyle.failedBg}`}>
-                <div className={`${CourseStyle.failedCard}`}>
-                  <h2>FAILED</h2>
+        {loading ? (
+          ""
+        ) : (
+          <>
+            {course.length === 0 ? (
+              <h2 className="text-3xl text-center">Please Add The Course...</h2>
+            ) : (
+              ""
+            )}
+          </>
+        )}
+        {loading ? (
+          <div className="flex justify-center items-start ">
+            <div className="w-12 h-12 border-4 border-dashed rounded-full animate-spin dark:border-red-600"></div>
+          </div>
+        ) : (
+          <div className="grid lg:grid-cols-4 gap-8 grid-cols-1">
+            {course?.map((item, idx) => (
+              <div className={`${CourseStyle.CardParent}`} key={idx}>
+                <Image
+                  src={item?.image}
+                  alt="courses"
+                  width={400}
+                  height={300}
+                />
+                <div className={`${CourseStyle.contentParent}`}>
+                  <h2 className={`${CourseStyle.author}`}>
+                    <User size={18} /> {item?.instructor_name}
+                  </h2>
+                  <h2 className={`${CourseStyle.courseTitle}`}>
+                    {item?.title}
+                  </h2>
+                  <p className={`${CourseStyle.courseParagraph}`}>
+                    {item?.description}
+                  </p>
+                </div>
+                <div className={`${CourseStyle.buttonParent}`}>
+                  <button className={`${CourseStyle.cardButton}`}>
+                    VIEW DETAILS
+                  </button>
+                </div>
+                <div className={`${CourseStyle.failedContent}`}>
+                  <div className={`${CourseStyle.failedBg}`}>
+                    <div className={`${CourseStyle.failedCard}`}>
+                      <h2>FAILED</h2>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
