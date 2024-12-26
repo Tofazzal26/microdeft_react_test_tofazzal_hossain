@@ -2,10 +2,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const Header = () => {
   const activeNavbar = usePathname();
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    const loginToken = localStorage.getItem("token");
+    setUser(data);
+    setToken(loginToken);
+  }, []);
+
+  const handleLogOut = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -141,12 +155,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <Link href="/api/login">
-              <button className="bg-[#fee100] lg:px-4 px-3 py-[6px] lg:py-2 rounded-lg">
-                Login
-              </button>
-            </Link>
-            {/* {!user && !token ? (
+            {!user && !token ? (
               <Link href="/api/login">
                 <button className="bg-[#fee100] lg:px-4 px-3 py-[6px] lg:py-2 rounded-lg">
                   Login
@@ -187,7 +196,7 @@ const Header = () => {
                   </ul>
                 </div>
               </>
-            )} */}
+            )}
           </div>
         </div>
       </div>

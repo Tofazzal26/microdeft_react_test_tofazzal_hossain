@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,7 +20,40 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
+  const onSubmit = async (data) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const email = data.email;
+      const password = data.password;
+      setLoading(true);
+      const resp = await axios.post(
+        `https://react-interview.crd4lc.easypanel.host/api/login`,
+        { email, password }
+      );
+
+      const user = resp?.data?.data?.user;
+      const resToken = resp?.data?.data?.token;
+
+      if (user && resToken) {
+        JSON.stringify(localStorage.setItem("token", resToken));
+        localStorage.setItem("user", JSON.stringify(user));
+      }
+
+      if (resp.data?.status_code === 460) {
+        setLoading(false);
+        return toast.error("Email Or Password Invalid");
+      }
+
+      toast.success(resp.data?.status_message);
+      router.push("/");
+      setLoading(false);
+    } catch (error) {
+      toast.error("Email and Password Invalid");
+      setLoading(false);
+      console.log(error);
+    }
+  };
 
   return (
     <div>

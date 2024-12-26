@@ -40,7 +40,10 @@ const Register = () => {
       if (user) {
         localStorage.setItem("user", JSON.stringify(user));
       }
+      toast.success("Login Success");
       router.push("/");
+
+      // window.location.reload();
       setLoading(false);
     } catch (error) {
       toast.error("Write the current email and password");
