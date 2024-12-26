@@ -1,12 +1,36 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 import CourseStyle from "./coursestyle.module.css";
 import { User } from "lucide-react";
+import axios from "axios";
 
 const Courses = () => {
+  const [course, setCourse] = useState();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const courseAccess = async () => {
+      if (token) {
+        const resp = await axios.get(
+          `https://react-interview.crd4lc.easypanel.host/api/course`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setCourse(resp.data?.data?.data);
+      }
+    };
+    courseAccess();
+  }, []);
+
+  console.log(course);
+
   return (
-    <div className="my-10">
-      <div>
+    <div className="container mx-auto">
+      <div className="my-10">
         <div>
           <div className={`${CourseStyle.CardParent}`}>
             <Image src="/images.jpg" alt="courses" width={300} height={300} />

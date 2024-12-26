@@ -22,8 +22,6 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const token = localStorage.getItem("token");
-
       const email = data.email;
       const password = data.password;
       setLoading(true);

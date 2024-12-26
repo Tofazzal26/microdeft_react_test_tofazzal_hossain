@@ -17,7 +17,8 @@ const Header = () => {
   }, []);
 
   const handleLogOut = () => {
-    localStorage.clear();
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     window.location.reload();
   };
 
@@ -78,21 +79,15 @@ const Header = () => {
                   </li>
                   <li>
                     <Link
-                      href="/api/blog"
+                      href="/api/addCourse"
                       className={
-                        activeNavbar === "/api/blog"
+                        activeNavbar === "/api/addCourse"
                           ? "text-[16px] text-[#e7b97a]"
                           : "text-[16px]"
                       }
                     >
-                      Blog
+                      Add Course
                     </Link>
-                  </li>
-                  <li>
-                    <a className="text-[16px]">Contact Us</a>
-                  </li>
-                  <li>
-                    <a className="text-[16px]">English</a>
                   </li>
                 </ul>
               </ul>
@@ -136,21 +131,15 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href="/api/blog"
+                  href="/api/addCourse"
                   className={
-                    activeNavbar === "/api/blog"
+                    activeNavbar === "/api/addCourse"
                       ? "text-[16px] text-[#e7b97a]"
                       : "text-[16px]"
                   }
                 >
-                  Blog
+                  Add Course
                 </Link>
-              </li>
-              <li>
-                <a className="text-[16px]">Contact Us</a>
-              </li>
-              <li>
-                <a className="text-[16px]">English</a>
               </li>
             </ul>
           </div>
