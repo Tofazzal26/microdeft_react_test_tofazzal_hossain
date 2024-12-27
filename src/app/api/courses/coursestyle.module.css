@@ -67,6 +67,22 @@
   left: -6px;
   top: 210px;
 }
+.ratingParent {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingNumber {
+  margin-top: 16px;
+}
 
 @media screen and (max-width: 600px) {
   .failedContent {

@@ -51,8 +51,6 @@ const AddCourse = () => {
           router.push("/api/courses");
           setLoading(false);
         }
-
-        console.log(resp.data);
       } else {
         toast.error("Please Login First");
         router.push("/api/register");

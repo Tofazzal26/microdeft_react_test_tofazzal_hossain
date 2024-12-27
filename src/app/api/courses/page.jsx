@@ -39,7 +39,9 @@ const Courses = () => {
         ) : (
           <>
             {course.length === 0 ? (
-              <h2 className="text-3xl text-center">Please Add The Course...</h2>
+              <h2 className="text-3xl text-center lg:h-[31vh]">
+                Please Add The Course...
+              </h2>
             ) : (
               ""
             )}
@@ -63,6 +65,48 @@ const Courses = () => {
                   <h2 className={`${CourseStyle.author}`}>
                     <User size={18} /> {item?.instructor_name}
                   </h2>
+
+                  <div className={`${CourseStyle.rating}`}>
+                    <div className={`${CourseStyle.ratingParent}`}>
+                      <Image
+                        src="/star.png"
+                        alt="courses"
+                        width={16}
+                        height={16}
+                      />
+                      <Image
+                        src="/star.png"
+                        alt="courses"
+                        width={16}
+                        height={16}
+                      />
+                      <Image
+                        src="/star.png"
+                        alt="courses"
+                        width={16}
+                        height={16}
+                      />
+                      <Image
+                        src="/star.png"
+                        alt="courses"
+                        width={16}
+                        height={16}
+                      />
+                      <Image
+                        src="/star.png"
+                        alt="courses"
+                        width={16}
+                        height={16}
+                      />
+                    </div>
+                    <div>
+                      <h2 className={`${CourseStyle.ratingNumber}`}>
+                        {" "}
+                        ( {item?.id} ){" "}
+                      </h2>
+                    </div>
+                  </div>
+
                   <h2 className={`${CourseStyle.courseTitle}`}>
                     {item?.title}
                   </h2>

@@ -138,7 +138,7 @@ const Register = () => {
             </form>
             <div>
               <h2 className="mt-4 text-gray-500">
-                Do not Have An Account ?{" "}
+                You Have An Account ?{" "}
                 <Link href="/api/login" className="text-blue-500">
                   Login
                 </Link>
