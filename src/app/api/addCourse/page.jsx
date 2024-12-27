@@ -1,10 +1,8 @@
 "use client";
-import { Eye, EyeOff, Fan } from "lucide-react";
-import Link from "next/link";
+import { Fan } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 

@@ -16,7 +16,6 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -42,13 +41,12 @@ const Register = () => {
       }
       toast.success("Login Success");
       router.push("/");
-
       // window.location.reload();
       setLoading(false);
     } catch (error) {
       toast.error("Write the current email and password");
       setLoading(false);
-      console.log(error);
+      // console.log(error);
     }
   };
 

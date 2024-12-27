@@ -16,7 +16,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -49,7 +48,6 @@ const Login = () => {
     } catch (error) {
       toast.error("Email and Password Invalid");
       setLoading(false);
-      console.log(error);
     }
   };
 
