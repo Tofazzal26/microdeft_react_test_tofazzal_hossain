@@ -123,12 +123,13 @@ const AddCourse = () => {
               <div>
                 <label className="text-gray-500">Badge Color *</label>
                 <br />
-                <input
-                  type="text"
+                <select
                   {...register("badgeColor", { required: true })}
                   className="md:py-[10px] py-2 mt-2 mb-4 px-3 w-full md:w-[400px] md:px-5 bg-[#f3f4f7] border-[1px]  outline-none rounded-none"
-                />
-                <br />
+                >
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                </select>
                 {errors.badgeColor && (
                   <span className="text-red-500">
                     This Badge Color field is required...

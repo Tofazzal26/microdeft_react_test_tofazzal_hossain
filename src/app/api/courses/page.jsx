@@ -31,8 +31,6 @@ const Courses = () => {
     courseAccess();
   }, []);
 
-  console.log(course);
-
   return (
     <div className="container mx-auto">
       <div className="my-10">
@@ -79,8 +77,17 @@ const Courses = () => {
                 </div>
                 <div className={`${CourseStyle.failedContent}`}>
                   <div className={`${CourseStyle.failedBg}`}>
-                    <div className={`${CourseStyle.failedCard}`}>
-                      <h2>FAILED</h2>
+                    <div
+                      className={`${CourseStyle.failedCard} ${
+                        item?.badge_color === "red"
+                          ? "bg-red-500"
+                          : "bg-blue-500"
+                      }`}
+                    >
+                      <h2>
+                        {" "}
+                        {item?.badge_color === "red" ? "FAILED" : "PASSED"}{" "}
+                      </h2>
                     </div>
                   </div>
                 </div>
