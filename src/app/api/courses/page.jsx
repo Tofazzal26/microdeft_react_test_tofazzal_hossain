@@ -53,8 +53,8 @@ const Courses = () => {
           </div>
         ) : (
           <div className="grid lg:grid-cols-4 gap-8 grid-cols-1">
-            {course?.map((item, idx) => (
-              <div className={`${CourseStyle.CardParent}`} key={idx}>
+            {course?.map((item) => (
+              <div className={`${CourseStyle.CardParent}`} key={item?.id}>
                 <Image
                   src={item?.image}
                   alt="courses"
